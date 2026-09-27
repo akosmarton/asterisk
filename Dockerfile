@@ -1,4 +1,4 @@
-FROM fedora:43
+FROM fedora:45
 
 RUN dnf install -y --setopt=install_weak_deps=False \
     asterisk \
@@ -10,16 +10,6 @@ RUN dnf install -y --setopt=install_weak_deps=False \
     asterisk-voicemail-plain \   
     asterisk-iax2 \
     ssmtp
-
-# FROM ubuntu:questing
-
-# RUN apt-get update && apt-get install -y \
-#     asterisk \  
-#     asterisk-core-sounds-en-g722 \
-#     asterisk-core-sounds-en-wav \
-#     asterisk-moh-opsound-g722 \
-#     asterisk-moh-opsound-wav \
-#     ssmtp
 
 EXPOSE 5060/udp 4569/udp
 VOLUME /var/spool/asterisk /var/log/asterisk /var/lib/asterisk
